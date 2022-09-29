@@ -1,3 +1,4 @@
+from cgi import parse_multipart
 import random
 
 answers = []
@@ -44,5 +45,5 @@ def bridge_keeper():
 
 isGuessing = True
 
-while isGuessing == True:
+if isGuessing == True:
     isGuessing = bridge_keeper()
