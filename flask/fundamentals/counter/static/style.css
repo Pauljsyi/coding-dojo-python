@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  width: 200px;
+}
+
+input {
+  width: 200px;
+}

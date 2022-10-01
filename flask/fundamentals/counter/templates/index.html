@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+    <!-- <link rel="stylesheet"  type="text/css" href="{{url_for('static', filename='style.css')}}"> -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='style.css')}}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to Actual Counter</h1>
+      <h3>User visited {{visited}} times</h3>
+      <h3>{{clicked}} times</h3>
+      <button>
+        <a href="/increment_2">increment by 2</a>
+      </button>
+      <button>
+        <a href="/destroy_session">destroy sesh</a>
+      </button>
+      <button>
+        <a href="/reset_count">reset counter</a>
+      </button>
+
+      <form action="/user_count" method="post">
+        <label for="user_count">User Count</label>
+        <input type="text" name="user-count" value="0" />
+        <button>User Count</button>
+      </form>
+    </div>
+  </body>
+</html>
