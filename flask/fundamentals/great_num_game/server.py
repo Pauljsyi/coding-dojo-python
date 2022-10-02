@@ -16,7 +16,11 @@ def guess():
     random_num = random.randint(1, 100)
     session['random_num'] = random_num
   
-  if session['attempts']:
+
+  if session['attempts'] >= 5:
+    print('you lose')
+    session['attempts'] = 0
+  elif session['attempts'] < 5:
     session['attempts'] +=1
     print('this is attempts', session['attempts'])
   # print(session)
@@ -47,13 +51,14 @@ def guess():
     print('too high')
     too_high = 'too high!'
     container_color = 'background-color: red'
-    return render_template('index.html', too_high = too_high, container_color = container_color)
+    return render_template('index.html', too_high = too_high, guess = user_guess, rand_num = session['random_num'], container_color = container_color)
   elif user_guess < session['random_num']:
     print('too low')
     too_low = 'too low!'
     container_color = 'background-color: red'
-    return render_template('index.html', too_low = too_low, container_color = container_color)
+    return render_template('index.html', too_low = too_low, guess = user_guess, rand_num = session['random_num'] ,container_color = container_color)
   # print('random number: ', random_num)
+  # return redirect('/')
   
 
 
