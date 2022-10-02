@@ -1,8 +1,13 @@
 <div class="result-container" style="{{container_color}}">
   <h1>{{correct}}</h1>
+
   {% if guess > rand_num %}
   <h1>{{too_high}}</h1>
   {% elif guess < rand_num %}
   <h1>{{too_low}}</h1>
   {% endif %}
 </div>
+
+{% if guess == rand_num %}
+<button><a href="/">go back</a></button>
+{% endif %}
