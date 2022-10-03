@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+    <title>Dojo Survey</title>
+  </head>
+  <body>
+    <div class="form-container bg-dark">
+      <h1 class="title text-warning">Dojo Survey</h1>
+      <form action="/process">
+        <div class="form-group">
+          <label for="your-name">Name: </label>
+          <input type="text" class="form-control" id="your-name" />
+        </div>
+        <div class="form-group">
+          <label for="dojo-location">Dojo Location: </label>
+          <select name="dojo-location" id="dojo-location" class="form-control">
+            <option value="Silicon Valley, CA">Silicon Valley, CA</option>
+            <option value="Los Angeles, CA">Los Angeles, CA</option>
+            <option value="Bellevue, WA">Bellevue, WA</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fav-language">Favorite Language: </label>
+          <select name="fav-language" id="fav-language" class="form-control">
+            <option value="Javascript">Javascript</option>
+            <option value="Python">Python</option>
+            <option value="C#">C#</option>
+          </select>
+        </div>
+        <div class="form-group" id="comment-area">
+          <label for="comment-here">Comment (optional):</label>
+          <textarea
+            name="comment"
+            id="comment-here"
+            cols="30"
+            rows="10"
+            class="form-control"
+          ></textarea>
+        </div>
+        <button class="btn btn-warning">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
