@@ -6,7 +6,7 @@
   margin: 50px auto;
   border: 2px solid black;
   padding: 25px;
-  width: 500px;
+  width: 600px;
 }
 
 .form-group {
@@ -16,6 +16,36 @@
   margin: 15px;
   color: white;
   /* width: 300px; */
+}
+
+.form-radio-group {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 15px;
+  color: white;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+/* .radio-line {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+} */
+
+.check {
+  margin: 5px 0;
+  display: flex;
+  /* align-content: center; */
+}
+
+.check input {
+  margin-right: 10px;
 }
 
 button {
