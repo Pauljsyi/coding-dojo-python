@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template
 app = Flask(__name__)
 
@@ -9,6 +10,7 @@ def index():
     {'first_name' : 'Mark', 'last_name' : 'Guillen'},
     {'first_name' : 'KB', 'last_name' : 'Tonel'}
   ]
+
 
   return render_template("index.html", users = users, length = len(users) )	
 

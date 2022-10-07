@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <title>Results</title>
+  </head>
+  <body>
+    <div class="container m-50">
+      <table class="table m-50">
+        <thead>
+          <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        {% for user in users %} {% if user %}
+        <tbody>
+          <td class="mx-5">{{user.first_name}}</td>
+          <td class="mx-5">{{user.last_name}}</td>
+          <td class="mx-5">{{user.email}}</td>
+        </tbody>
+        {% endif %} {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>

@@ -24,7 +24,7 @@
         <p>{{ key | capitalize}}:</p>
         <p>{{ session['form_data'][key] }}</p>
       </div>
-      {% endfor %}
+      {% if condition %} {% endif %} {% endfor %}
       <button class="btn btn-warning" formaction="/">
         <a href="/">Go Back</a>
       </button>
