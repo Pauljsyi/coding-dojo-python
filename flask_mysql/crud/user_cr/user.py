@@ -22,10 +22,19 @@ class User:
       users.append(cls(user))
     return users
 
+
+  @classmethod
+  def get_one(cls, data:dict):
+    query = "SELECT * FROM users WHERE users.id = %(id)s"
+    results = MySQLConnection(DATABASE).query_db(query)
+
   @classmethod
   def create(cls, data:dict):
     query = "INSERT INTO users (first_name, last_name, email) VALUES (%(first_name)s, %(last_name)s, %(email)s)"
     
+  @classmethod
+  def update_one(cls, data:dict):
+    query = "UPDATE users SET first_name=(%(first_name)s), last_name=(%(last_name)s), email=(%(email)s)"
 
     user_id = MySQLConnection(DATABASE).query_db(query, data)
     return user_id

@@ -16,5 +16,9 @@ def results():
   users = User.get_all()
   return render_template("results.html", users = users)
 
+@app.route('/edit')
+def edit():
+  return render_template('edit.html')
+
 if __name__ == "__main__":
   app.run(debug=True)
