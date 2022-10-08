@@ -14,14 +14,12 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
     />
-    <title>Edit User | {{user.first_name | capitalize}}</title>
+    <title>USER CR</title>
   </head>
   <body class="bg-dark">
-    <h1 class="text-center text-white">
-      Edit {{user.first_name | capitalize}}
-    </h1>
+    <h1 class="text-center text-white">Add User</h1>
     <div class="container text-white w-25">
-      <form action="/{{user.id}}/update/" method="post">
+      <form action="/create" method="post">
         <label for="first_name">First Name:</label>
         <input
           class="form-control mb-3"

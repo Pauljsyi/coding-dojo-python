@@ -16,31 +16,28 @@
     />
     <title>USER CR</title>
   </head>
-  <body>
-    <h1 class="text-center">Add User</h1>
-    <div class="container">
+  <body class="bg-dark">
+    <h1 class="text-center text-white">Add User</h1>
+    <div class="container text-white w-25">
       <form action="/create" method="post">
         <label for="first_name">First Name:</label>
         <input
-          class="form-control"
+          class="form-control mb-3"
           type="text"
           name="first_name"
           id="first_name"
         />
         <label for="last_name">Last Name:</label>
         <input
-          class="form-control"
+          class="form-control mb-3"
           type="text"
           name="last_name"
           id="last_name"
         />
         <label for="email">Email:</label>
-        <input class="form-control" type="text" name="email" id="email" />
+        <input class="form-control mb-3" type="text" name="email" id="email" />
         <button class="btn btn-success">Submit</button>
       </form>
-      <button class="btn btn-success">
-        <a href="/results">Go To Users</a>
-      </button>
     </div>
   </body>
 </html>

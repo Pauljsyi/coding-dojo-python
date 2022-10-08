@@ -1,6 +1,6 @@
-from flask import Flask, render_template, redirect, request
-from user import User
-app = Flask(__name__)
+from flask_app import app
+from flask import render_template, redirect, request, session, flash
+from controllers.users import User
 
 @app.route('/')
 def home():
@@ -45,6 +45,3 @@ def update(id):
 def delete(id):
   User.delete_one({'id': id})
   return redirect('/')
-
-if __name__ == "__main__":
-  app.run(debug=True)
