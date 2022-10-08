@@ -14,7 +14,7 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
     />
-    <title>Results</title>
+    <title>{{user.first_name}} {{user.last_name}}</title>
   </head>
   <body>
     <div class="container m-50">
@@ -27,29 +27,22 @@
             <th scope="col">Email</th>
           </tr>
         </thead>
-        {% for user in users %} {% if user %}
         <tbody>
           <td class="mx-5">{{user.id}}</td>
           <td class="mx-5">{{user.first_name}}</td>
           <td class="mx-5">{{user.last_name}}</td>
           <td class="mx-5">{{user.email}}</td>
           <td>
-            <button class="view btn btn-success">
-              <a href="/{{user.id}}/show_one">view</a>
-            </button>
-          </td>
-          <td>
             <button class="edit btn btn-success">
-              <a href="/{{user.id}}/edit">edit</a>
+              <a href="/{{user.id}}/edit/">edit</a>
             </button>
           </td>
           <td>
             <button class="delete btn btn-success">
-              <a href="/{{user.id}}/delete">delete</a>
+              <a href="/{{user.id}}/delete/">delete</a>
             </button>
           </td>
         </tbody>
-        {% endif %} {% endfor %}
       </table>
       <button class="btn btn-success">
         <a href="/">add more</a>

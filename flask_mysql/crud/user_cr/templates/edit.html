@@ -14,12 +14,12 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
     />
-    <title>USER CR</title>
+    <title>Edit User</title>
   </head>
   <body>
-    <h1 class="text-center">Add User</h1>
+    <h1 class="text-center">Edit {{user.first_name}}</h1>
     <div class="container">
-      <form action="/create" method="post">
+      <form action="/{{user.id}}/update/" method="post">
         <label for="first_name">First Name:</label>
         <input
           class="form-control"
@@ -38,9 +38,6 @@
         <input class="form-control" type="text" name="email" id="email" />
         <button class="btn btn-success">Submit</button>
       </form>
-      <button class="btn btn-success">
-        <a href="/results">Go To Users</a>
-      </button>
     </div>
   </body>
 </html>

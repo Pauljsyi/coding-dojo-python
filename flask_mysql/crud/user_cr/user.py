@@ -14,7 +14,7 @@ class User:
   @classmethod
   def get_all(cls):
     query = "SELECT * FROM users;"
-    results = MySQLConnection(DATABASE).query_db(query)
+    results = connectToMySQL(DATABASE).query_db(query)
     # Create an empty list to append our instances of users
     users = []
 
@@ -25,16 +25,36 @@ class User:
 
   @classmethod
   def get_one(cls, data:dict):
-    query = "SELECT * FROM users WHERE users.id = %(id)s"
-    results = MySQLConnection(DATABASE).query_db(query)
+    query = "SELECT * FROM users WHERE id = %(id)s;"
+    results = connectToMySQL(DATABASE).query_db(query, data)
+    print(query)
+    if not results:
+      return False
+
+    # print('get one!', results[0])
+    return results[0]
 
   @classmethod
   def create(cls, data:dict):
-    query = "INSERT INTO users (first_name, last_name, email) VALUES (%(first_name)s, %(last_name)s, %(email)s)"
+    print("class method CREATE:  ", data['first_name'])
+    
+    query = "INSERT INTO users (first_name, last_name, email) VALUES (%(first_name)s, %(last_name)s, %(email)s);"
+    # query = "INSERT INTO users (first_name, last_name, email) VALUES ('pablo', 'escobar', 'pe@gmail.com')"
+    user_id = connectToMySQL(DATABASE).query_db(query, data)
+    return user_id
     
   @classmethod
   def update_one(cls, data:dict):
-    query = "UPDATE users SET first_name=(%(first_name)s), last_name=(%(last_name)s), email=(%(email)s)"
+    # print('update one id:  ', data.id)
+    print('update one data:  ', data)
+    query = "UPDATE users SET first_name=(%(first_name)s), last_name=(%(last_name)s), email=(%(email)s) WHERE id=%(id)s;"
 
-    user_id = MySQLConnection(DATABASE).query_db(query, data)
+    connectToMySQL(DATABASE).query_db(query, data)
+  
+  @classmethod
+  def delete_one(cls, data:dict):
+    print('DELETEEEDD', data)
+    query = "DELETE FROM users WHERE id=%(id)s"
+
+    user_id = connectToMySQL(DATABASE).query_db(query, data)
     return user_id
