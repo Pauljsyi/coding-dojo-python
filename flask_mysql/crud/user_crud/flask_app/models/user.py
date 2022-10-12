@@ -17,7 +17,6 @@ class User:
     results = connectToMySQL(DATABASE).query_db(query)
     # Create an empty list to append our instances of users
     users = []
-
     for user in results:
       users.append(cls(user))
     return users
@@ -30,31 +29,23 @@ class User:
     print(query)
     if not results:
       return False
-
-    # print('get one!', results[0])
     return results[0]
 
   @classmethod
   def create(cls, data:dict):
     print("class method CREATE:  ", data['first_name'])
-    
     query = "INSERT INTO users (first_name, last_name, email) VALUES (%(first_name)s, %(last_name)s, %(email)s);"
-    # query = "INSERT INTO users (first_name, last_name, email) VALUES ('pablo', 'escobar', 'pe@gmail.com')"
     user_id = connectToMySQL(DATABASE).query_db(query, data)
     return user_id
     
   @classmethod
   def update_one(cls, data:dict):
-    # print('update one id:  ', data.id)
     print('update one data:  ', data)
     query = "UPDATE users SET first_name=(%(first_name)s), last_name=(%(last_name)s), email=(%(email)s) WHERE id=%(id)s;"
-
     connectToMySQL(DATABASE).query_db(query, data)
   
   @classmethod
   def delete_one(cls, data:dict):
-    print('DELETEEEDD', data)
     query = "DELETE FROM users WHERE id=%(id)s"
-
     user_id = connectToMySQL(DATABASE).query_db(query, data)
     return user_id

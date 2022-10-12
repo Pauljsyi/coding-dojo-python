@@ -1,0 +1,10 @@
+a,
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+button a,
+button a:hover {
+  color: white;
+}
